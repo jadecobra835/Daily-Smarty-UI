@@ -4,9 +4,10 @@ import { Provider } from "react-redux";
 import { createStore, applyMiddleware } from "redux";
 import { BrowserRouter, Switch, Route } from "react-router-dom";
 import thunk from 'redux-thunk';
+import { composeWithDevTools } from 'redux-devtools-extension';
 import reducers from "./reducers";
 
-const createStoreWithMiddleware = applyMiddleware(thunk)(createStore);
+const createStoreWithMiddleware = createStore(reducers, composeWithDevTools(applyMiddleware(thunk)));
 
 import "./style/main.scss";
 
@@ -15,7 +16,7 @@ import Results from "./components/results";
 
 function main() {
   ReactDOM.render(
-    <Provider store={createStoreWithMiddleware(reducers)}>
+    <Provider store={createStoreWithMiddleware}>
       <BrowserRouter>
         <Switch>
           <Route path="/" exact component={Home} />
