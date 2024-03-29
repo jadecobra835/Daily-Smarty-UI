@@ -3,10 +3,9 @@ import {
 } from '../actions/types';
 
 const INIT_STATE = {
-    // posts: [],
-    // recentPosts:[]
+    // posts: [], use this instead of portfolio_items
     portfolio_items: [],
-    recentPortfolioItems: []
+    recentPosts: []
 }
 
 export default function(state = INIT_STATE, action) {
