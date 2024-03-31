@@ -5,13 +5,14 @@ import axios from 'axios';
 export function fetchRecentPosts() {
     return function(dispatch) {
         axios.get( //'https://api.dailysmarty.com/posts'
-            // Delete both of the items bellow this when dailysmarty is running again.
+            // TEMPORARY: Delete both of the items bellow this when dailysmarty is running again.
             'https://xanderjensen.devcamp.space/portfolio/portfolio_items',
             { withCredentials: true }
         ).then(response => {
             console.log(response.data.portfolio_items);
             dispatch({
                 type: "SET_RECENT_POSTS",
+                // TEMPORARY
                 // payload: response.data.posts
                 payload: response.data.portfolio_items
             })

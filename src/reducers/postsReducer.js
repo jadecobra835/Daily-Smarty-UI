@@ -3,6 +3,7 @@ import {
 } from '../actions/types';
 
 const INIT_STATE = {
+    // TEMPORARY
     // posts: [], use this instead of portfolio_items
     portfolio_items: [],
     recentPosts: []
