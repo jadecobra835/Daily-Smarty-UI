@@ -1,4 +1,7 @@
-import { SET_RECENT_POSTS } from './types';
+import { 
+    SET_RECENT_POSTS,
+    SET_RESULTS_POSTS
+} from './types';
 
 import axios from 'axios';
 
@@ -39,12 +42,12 @@ export function fetchPostsWithQuery(query) {
             // TEMPORARY
             // console.log(response.data.posts);
             console.log(response.data.portfolio_item);
-            // dispatch({
-            //     type: "SET_RECENT_POSTS",
-            //     // TEMPORARY
-            //     // payload: response.data.posts
-            //     payload: response.data.portfolio_items
-            // })
+            dispatch({
+                type: "SET_RESULTS_POSTS",
+                // TEMPORARY
+                // payload: response.data.posts
+                payload: response.data.portfolio_item
+            })
         }).catch(error => {
             console.log("actions fetchRecentPost error", error);
         });
