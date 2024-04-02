@@ -8,15 +8,16 @@ import * as actions from '../actions';
 
 class Home extends Component {
   handleSearchBarSubmit(query) {
-    this.props.fetchPostsWithQuery(query);
-    this.props.history.push('/results');
+    this.props.fetchPostsWithQuery(query, () => {
+      this.props.history.push('/results');
+    });
   }
 
   render() {
     return (
-      <div className='app'>
+      <div className='home'>
         <Logo />
-        <SearchBar onSubmit={(query) => this.handleSearchBarSubmit(query)}/>
+        <SearchBar page={'home'} onSubmit={(query) => this.handleSearchBarSubmit(query)}/>
         <RecentPosts />
       </div>
     );

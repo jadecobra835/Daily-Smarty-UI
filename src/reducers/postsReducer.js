@@ -5,7 +5,7 @@ import {
 
 const INIT_STATE = {
     // TEMPORARY
-    // resultsPosts: [], use this instead of portfolio_items
+    // resultsPosts: [], // use this instead of portfolio_items
     portfolio_items: [],
     recentPosts: []
 }
@@ -17,8 +17,12 @@ export default function(state = INIT_STATE, action) {
             return {...state, recentPosts };
 
         case SET_RESULTS_POSTS: 
-            const resultsPosts = action.payload;
-            return {...state, resultsPosts};
+            // TEMPORARY
+            // const resultsPosts = action.payload;
+            // return {...state, resultsPosts};
+
+            const portfolio_items = action.payload;
+            return {...state, portfolio_items};
     
         default:
             return state;
